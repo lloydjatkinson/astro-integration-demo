@@ -1,6 +1,6 @@
 {
-  "name": "astro-component-name",
-  "version": "0.1.0",
+  "name": "@lloydjatkinson/astro-integration-demo-components",
+  "version": "0.0.1",
   "type": "module",
   "exports": {
     ".": "./index.ts"

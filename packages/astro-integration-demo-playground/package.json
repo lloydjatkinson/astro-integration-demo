@@ -1,5 +1,5 @@
 {
-  "name": "@example/starter",
+  "name": "@lloydjatkinson/astro-integration-demo-playground",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,5 +16,8 @@
     "preact": "^10.6.5",
     "vite": "^2.5.10",
     "vue": "^3.2.30"
+  },
+  "dependencies": {
+    "@lloydjatkinson/astro-integration-demo-components": "workspace:^0.0.1"
   }
 }
