@@ -6,11 +6,19 @@ import '../styles/home.css';
 import PreactCounter from '../components/PreactCounter.jsx';
 import VueCounter from '../components/VueCounter.vue';
 
+import { Foo } from '@lloydjatkinson/astro-integration-demo-components';
+import { Component } from '@lloydjatkinson/astro-integration-demo-components/astro';
+
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = 'My Astro Site';
+
+const foos: Foo[] = [
+	{ bar: 'apple', qux: 'banana' },
+	{ bar: 'orange', qux: 'pear' },
+];
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -61,6 +69,8 @@ let title = 'My Astro Site';
 				<h1>Welcome to <a href="https://astro.build/">Astro</a></h1>
 			</div>
 		</header>
+
+		<Component foos={foos} />
 
 		<article>
 			<div class="banner">
