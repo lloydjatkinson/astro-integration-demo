@@ -1,0 +1,49 @@
+---
+// id – string
+
+// name – string
+
+// price –
+
+// url – string
+
+// description – an optional string
+
+// image – an optional string
+
+// categories – an optional
+
+// metadata – an optional {}
+
+// fileGuid – an optional string
+
+// quantity – an optional number
+
+// minQuantity – an optional number
+
+// maxQuantity – an optional number
+
+// quantityStep – an optional number
+
+// dimensions – an optional Dimensions
+
+// customFields – an optional
+
+// stackable – an optional StackingOptions
+
+// shippable – boolean
+
+// hasTaxesIncluded – an optional boolean
+
+// taxable – boolean
+
+// taxes – an optional
+
+import { SnipcartProduct } from './types';
+
+export type SnipcartProductProps = SnipcartProduct;
+
+const { id, name, price } = Astro.props as SnipcartProductProps;
+---
+
+<

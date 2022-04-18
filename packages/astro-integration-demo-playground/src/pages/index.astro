@@ -7,7 +7,12 @@ import PreactCounter from '../components/PreactCounter.jsx';
 import VueCounter from '../components/VueCounter.vue';
 
 import { Foo } from '@lloydjatkinson/astro-integration-demo-components';
-import { Component, SnipcartSetup } from '@lloydjatkinson/astro-integration-demo-components/astro';
+import {
+	Component,
+	SnipcartSetup,
+	SnipcartTotalPrice,
+	SnipcartItemsCount,
+} from '@lloydjatkinson/astro-integration-demo-components/astro';
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -73,6 +78,36 @@ const foos: Foo[] = [
 		</header>
 
 		<Component foos={foos} />
+
+		<button class="snipcart-add-item"
+  data-item-id="starry-night"
+  data-item-price="79.99"
+  data-item-url="/paintings/starry-night"
+  data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+  data-item-image="/assets/images/starry-night.jpg"
+  data-item-name="The Starry Night">
+  Add to cart
+</button>
+
+<div style="font-size: 6">
+	<SnipcartTotalPrice />
+</div>
+
+<SnipcartItemsCount />
+
+<button class="snipcart-checkout">Click here to checkout</button>
+
+<button class="snipcart-add-item"
+  data-item-id="starry-night2"
+  data-item-price="79.99"
+  data-item-url="/paintings/starry-night"
+  data-item-description="High-quality replica of The Starry Night by the Dutch post-impressionist painter Vincent van Gogh."
+  data-item-image="/assets/images/starry-night.jpg"
+  data-item-name="The Starry Night"
+  data-item-custom1-name="Frame color"
+  data-item-custom1-options="Black|Brown|Gold">
+  Add to cart
+</button>
 
 		<article>
 			<div class="banner">
