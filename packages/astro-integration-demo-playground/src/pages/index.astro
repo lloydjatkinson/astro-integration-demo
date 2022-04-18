@@ -7,7 +7,7 @@ import PreactCounter from '../components/PreactCounter.jsx';
 import VueCounter from '../components/VueCounter.vue';
 
 import { Foo } from '@lloydjatkinson/astro-integration-demo-components';
-import { Component } from '@lloydjatkinson/astro-integration-demo-components/astro';
+import { Component, SnipcartSetup } from '@lloydjatkinson/astro-integration-demo-components/astro';
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -60,7 +60,9 @@ const foos: Foo[] = [
 			padding: 1rem;
 		}
 	</style>
+	<SnipcartSetup />
 </head>
+
 <body>
 	<main>
 		<header>

@@ -1,1 +1,1 @@
-'hello world'
+console.log('hello world from astro integration');

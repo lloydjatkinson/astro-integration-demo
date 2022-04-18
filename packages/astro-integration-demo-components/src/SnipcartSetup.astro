@@ -1,0 +1,12 @@
+---
+const publicApiKey = process.env.PUBLIC_SNIPCART_API_KEY || import.meta.env.PUBLIC_SNIPCART_API_KEY;
+if (!publicApiKey) {
+    throw new Error('Snipcart requires a public API key setting. Ensure the PUBLIC_SNIPCART_API_KEY environment variable has been set.')
+}
+---
+
+<link rel="preconnect" href="https://app.snipcart.com" />
+<link rel="preconnect" href="https://cdn.snipcart.com" />
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.css" />
+<script async src="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.js"></script>
+<div hidden id="snipcart" data-api-key={ publicApiKey }></div>
