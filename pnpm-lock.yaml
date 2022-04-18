@@ -51,12 +51,14 @@ importers:
       '@astrojs/preact': ^0.1.1
       '@astrojs/vue': ^0.1.1
       '@babel/core': '>=7.0.0-0 <8.0.0'
+      '@lloydjatkinson/astro-integration-demo': workspace:^0.0.1
       '@lloydjatkinson/astro-integration-demo-components': workspace:^0.0.1
       astro: ^1.0.0-beta.12
       preact: ^10.6.5
       vite: ^2.5.10
       vue: ^3.2.30
     dependencies:
+      '@lloydjatkinson/astro-integration-demo': link:../astro-integration-demo
       '@lloydjatkinson/astro-integration-demo-components': link:../astro-integration-demo-components
     devDependencies:
       '@astrojs/preact': 0.1.1_4aogvlozmxuufv32kpculfbxce
