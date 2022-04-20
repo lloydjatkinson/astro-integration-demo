@@ -1,0 +1,11 @@
+---
+interface Props {
+    readonly as?: keyof HTMLElementTagNameMap;
+}
+
+const { as: Element = 'button' } = Astro.props as Props;
+---
+
+<Element class="snipcart-checkout">
+    <slot />
+</Element>

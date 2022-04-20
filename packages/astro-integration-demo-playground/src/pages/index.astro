@@ -12,6 +12,8 @@ import {
 	SnipcartSetup,
 	SnipcartTotalPrice,
 	SnipcartItemsCount,
+	SnipcartCheckout,
+	SnipcartProduct,
 } from '@lloydjatkinson/astro-integration-demo-components/astro';
 
 // Component Script:
@@ -59,6 +61,26 @@ const foos: Foo[] = [
 			padding-left: 0.75em;
 			border-radius: 4px;
 		}
+
+		button.snipcart-button-primary {
+			background-color: #1a4db3 !important;
+		}
+
+		/* .snipcart button, [type='button'], [type='reset'], [type='submit']{
+			button,
+			[type='button'],
+			[type='reset'],
+			[type='submit'] {
+				background-color: none;
+			}
+		} */
+.snipcart [type='button'] {
+	background-color: red;	
+}
+
+.snipcart button {
+	background-color: red;	
+}
 	</style>
 	<style is:global>
 		pre {
@@ -79,7 +101,7 @@ const foos: Foo[] = [
 
 		<Component foos={foos} />
 
-		<button class="snipcart-add-item"
+		<!-- <button class="snipcart-add-item"
   data-item-id="starry-night"
   data-item-price="79.99"
   data-item-url="/paintings/starry-night"
@@ -87,13 +109,79 @@ const foos: Foo[] = [
   data-item-image="/assets/images/starry-night.jpg"
   data-item-name="The Starry Night">
   Add to cart
-</button>
+</button> -->
 
-<div style="font-size: 6">
+<SnipcartProduct
+	id="SKU-0001"
+	name="Standard T-Shirt"
+	price={ 6.99 }
+	description="Every day basic t-shirt">
+	T-Shirt
+</SnipcartProduct>
+
+<div class="text-blue-800 font-bold">
 	<SnipcartTotalPrice />
 </div>
 
-<SnipcartItemsCount />
+<div class="flex flex-col gap-4">
+	<div class="py-4 bg-green-100">
+		<SnipcartProduct
+			as="button"
+			id="SKU-0002"
+			name="Standard T-Shirt"
+			price={ 12.99 }
+			description="Every day basic t-shirt"
+			image="/green-t-shirt.jpg"
+			categories={ ['cotton', 'clothes', 'green'] }
+			metadata={ { hello: 'world' } }
+			quantity={ 2 }
+			minimumQuantity={ 2 }
+			maximumQuantity={ 10 }
+			quantityStep={ 2 }
+			customFields={[
+				{ name: 'Size', value: ['Small', 'Medium', 'Large'] }
+			]}
+			shippable={ true }
+			hasTaxesIncluded={ true }
+			taxes={ ['foo', 'bar'] }>
+			Add new item to basket
+		</SnipcartProduct>
+	</div>
+
+	<div class="py-4 bg-blue-100">
+		<SnipcartProduct
+			as="button"
+			id="SKU-0003"
+			name="Standard T-Shirt"
+			price={ 12.99 }
+			description="Every day basic t-shirt"
+			image="/blue-t-shirt.jpg"
+			categories={ ['cotton', 'clothes', 'blue'] }
+			>
+			Add new item to basket
+		</SnipcartProduct>
+	</div>
+
+	<div class="py-4 bg-red-100">
+		<SnipcartProduct
+			as="button"
+			id="SKU-0004"
+			name="Standard T-Shirt"
+			price={ 12.99 }
+			description="Every day basic t-shirt"
+			image="/red-t-shirt.jpg"
+			categories={ ['cotton', 'clothes', 'red'] }
+			>
+			Add new item to basket
+		</SnipcartProduct>
+	</div>
+</div>
+
+<SnipcartItemsCount as="div" />
+
+<button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+	<SnipcartCheckout as="span">Open your basket</SnipcartCheckout>
+</button>
 
 <button class="snipcart-checkout">Click here to checkout</button>
 

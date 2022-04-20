@@ -39,11 +39,57 @@
 
 // taxes – an optional
 
-import { SnipcartProduct } from './types';
+import { Element, SnipcartProduct } from './types';
 
-export type SnipcartProductProps = SnipcartProduct;
+export type Props = Element & SnipcartProduct;
 
-const { id, name, price } = Astro.props as SnipcartProductProps;
+const {
+    as: Element = 'div',
+    id,
+    name,
+    price,
+    url,
+    description,
+    image,
+    categories = [],
+    metadata,
+    fileGuid,
+    quantity,
+    minimumQuantity,
+    maximumQuantity,
+    quantityStep,
+    dimensions,
+    customFields,
+    stackable,
+    shippable,
+    hasTaxesIncluded,
+    taxes,
+} = Astro.props as Props;
+
+const delimitedCategories = categories.join('|');
+const formattedMetadata = JSON.stringify(metadata);
 ---
 
-<
+<Element
+    class="snipcart-add-item"
+    data-item-id={ id }
+    data-item-name={ name }
+    data-item-price={ price }
+    data-item-url={ url }
+    data-item-image={ image }
+    data-item-description={ description }
+    data-item-categories={ delimitedCategories }
+    data-item-metadata={ formattedMetadata }
+    data-item-fileGuid={ fileGuid }
+    data-item-quantity={ quantity }
+    data-item-minimum-quanity={ minimumQuantity }
+    data-item-maximum-quanity={ maximumQuantity }
+    data-item-quantity-step={ quantityStep }
+    data-item-dimensions={ dimensions }
+    data-item-custom-fields={ customFields }
+    data-item-stackable={ stackable }
+    data-item-shippable={ shippable }
+    data-item-has-taxes-included={ hasTaxesIncluded }
+    data-item-taxes={ taxes }>
+    <slot />
+</Element>

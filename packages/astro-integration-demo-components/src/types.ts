@@ -3,14 +3,32 @@ export interface Foo {
 	readonly qux: string;
 }
 
-export type SnipcartProductDimensions = {
+export interface Element {
+    readonly as?: keyof HTMLElementTagNameMap;
+};
+
+/**
+ * 
+ */
+export type SnipcartProductStackable =
+    | 'auto'
+    | 'never'
+    | 'always';
+
+export interface SnipcartProductDimensions {
 	readonly weightInGrams?: number;
 	readonly lengthInCentimeters?: number;
 	readonly heightInCentimeters?: number;
 	readonly widthInCentimeters?: number;
 };
 
-export type SnipcartProduct = {
+export type CustomFields = {
+    readonly name: string;
+    readonly type?: string;
+    readonly value: readonly string [];
+};
+
+export interface SnipcartProduct {
 	readonly id: string;
     readonly name: string;
     readonly price: number;
@@ -21,8 +39,13 @@ export type SnipcartProduct = {
     readonly metadata?: object;
     readonly fileGuid?: string;
     readonly quantity?: number;
-    readonly minimumQuanity?: number;
-    readonly maximumQuanity?: number;
+    readonly minimumQuantity?: number;
+    readonly maximumQuantity?: number;
     readonly quantityStep?: number;
     readonly dimensions?: SnipcartProductDimensions;
+    readonly customFields?: readonly CustomFields[];
+    readonly stackable?: SnipcartProductStackable;
+    readonly shippable?: boolean;
+    readonly hasTaxesIncluded?: boolean;
+    readonly taxes?: readonly string[];
 };
