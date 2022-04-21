@@ -40,6 +40,7 @@
 // taxes – an optional
 
 import { Element, SnipcartProduct } from './types';
+import { buildDimensionsAttributes, buildCustomFieldAttributes } from './attributes';
 
 export type Props = Element & SnipcartProduct;
 
@@ -59,7 +60,7 @@ const {
     maximumQuantity,
     quantityStep,
     dimensions,
-    customFields,
+    customFields = [],
     stackable,
     shippable,
     hasTaxesIncluded,
@@ -68,6 +69,8 @@ const {
 
 const delimitedCategories = categories.join('|');
 const formattedMetadata = JSON.stringify(metadata);
+const customFieldAttributes = buildCustomFieldAttributes(customFields);
+const dimensionAttributes = buildDimensionsAttributes(dimensions);
 ---
 
 <Element
@@ -80,16 +83,16 @@ const formattedMetadata = JSON.stringify(metadata);
     data-item-description={ description }
     data-item-categories={ delimitedCategories }
     data-item-metadata={ formattedMetadata }
-    data-item-fileGuid={ fileGuid }
+    data-item-file-guid={ fileGuid }
     data-item-quantity={ quantity }
     data-item-min-quantity={ minimumQuantity }
     data-item-max-quantity={ maximumQuantity }
     data-item-quantity-step={ quantityStep }
-    data-item-dimensions={ dimensions }
-    data-item-custom-fields={ customFields }
     data-item-stackable={ stackable }
     data-item-shippable={ shippable }
     data-item-has-taxes-included={ hasTaxesIncluded }
-    data-item-taxes={ taxes }>
+    data-item-taxes={ taxes }
+    { ...customFieldAttributes }
+    { ...dimensionAttributes }>
     <slot />
 </Element>

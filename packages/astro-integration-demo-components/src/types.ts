@@ -22,10 +22,12 @@ export interface SnipcartProductDimensions {
 	readonly widthInCentimeters?: number;
 };
 
-export type CustomFields = {
+export type SnipcartProductCustomField = {
     readonly name: string;
+    readonly options: readonly string[];
     readonly type?: string;
-    readonly value: readonly string [];
+    readonly required?: boolean;
+    readonly placeholder?: string;
 };
 
 export interface SnipcartProduct {
@@ -43,7 +45,7 @@ export interface SnipcartProduct {
     readonly maximumQuantity?: number;
     readonly quantityStep?: number;
     readonly dimensions?: SnipcartProductDimensions;
-    readonly customFields?: readonly CustomFields[];
+    readonly customFields?: readonly SnipcartProductCustomField[];
     readonly stackable?: SnipcartProductStackable;
     readonly shippable?: boolean;
     readonly hasTaxesIncluded?: boolean;

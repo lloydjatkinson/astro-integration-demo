@@ -138,8 +138,15 @@ const foos: Foo[] = [
 			minimumQuantity={ 2 }
 			maximumQuantity={ 10 }
 			quantityStep={ 2 }
+			dimensions={{
+				weightInGrams: 0.5,
+				widthInCentimeters: 10,
+				heightInCentimeters: 10,
+				lengthInCentimeters: 10,
+			}}
 			customFields={[
-				{ name: 'Size', value: ['Small', 'Medium', 'Large'] }
+				{ name: 'Size', options: ['Small', 'Medium', 'Large'], placeholder: 'Pink', required: true },
+				{ name: 'Pattern', options: ['Abstract', 'Neon', 'Tiger'] }
 			]}
 			shippable={ true }
 			hasTaxesIncluded={ true }

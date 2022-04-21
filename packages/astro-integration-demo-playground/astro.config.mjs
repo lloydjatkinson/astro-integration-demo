@@ -10,6 +10,6 @@ export default defineConfig({
   integrations: [
     preact(),
     vue(),
-    tailwind()
-  ]
+    tailwind(),
+  ],
 });
