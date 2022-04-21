@@ -66,21 +66,6 @@ const foos: Foo[] = [
 			background-color: #1a4db3 !important;
 		}
 
-		/* .snipcart button, [type='button'], [type='reset'], [type='submit']{
-			button,
-			[type='button'],
-			[type='reset'],
-			[type='submit'] {
-				background-color: none;
-			}
-		} */
-.snipcart [type='button'] {
-	background-color: red;	
-}
-
-.snipcart button {
-	background-color: red;	
-}
 	</style>
 	<style is:global>
 		pre {
@@ -135,7 +120,7 @@ const foos: Foo[] = [
 				lengthInCentimeters: 10,
 			}}
 			customFields={[
-				{ name: 'Size', options: ['Small', 'Medium', 'Large'], placeholder: 'Pink', required: true },
+				{ name: 'Size', options: ['Small', 'Medium', 'Large[-300.00]'], placeholder: 'Pink', required: true },
 				{ name: 'Pattern', options: ['Abstract', 'Neon', 'Tiger'] }
 			]}
 			shippable={ true }
@@ -180,6 +165,10 @@ const foos: Foo[] = [
 </button>
 
 <button class="snipcart-checkout">Click here to checkout</button>
+
+
+
+
 
 <button class="snipcart-add-item"
   data-item-id="starry-night2"
