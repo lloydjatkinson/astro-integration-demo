@@ -4,11 +4,16 @@
   "type": "module",
   "exports": {
     ".": "./index.ts",
-    "./astro": "./astro.ts"
+    "./astro": "./astro.ts",
+    "./vue": "./vue.ts"
   },
   "files": [
     "src",
-    "index.ts"
+    "index.ts",
+    "astro.ts",
+    "vue.ts",
+    "/src/components/SnipcartProductBinding.vue",
+    "/src/components/VueConsumer.vue"
   ],
   "keywords": [
     "astro-component"

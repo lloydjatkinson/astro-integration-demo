@@ -12,4 +12,9 @@ export default defineConfig({
     vue(),
     tailwind(),
   ],
+  // vite: {
+  //   resolve: {
+  //     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.vue', '.json'],
+  //   },
+  // }
 });

@@ -14,7 +14,7 @@ export const buildDimensionsAttributes = (dimensions: SnipcartProductDimensions)
 
     return {
         ...(weightInGrams && {
-            [`data-item-weight-options`]: weightInGrams,
+            [`data-item-weight`]: weightInGrams,
         }),
         ...(lengthInCentimeters && {
             [`data-item-length`]: lengthInCentimeters,

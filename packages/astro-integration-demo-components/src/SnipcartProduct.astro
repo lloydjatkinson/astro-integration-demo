@@ -23,8 +23,9 @@ const {
     customFields = [],
     stackable,
     shippable,
-    hasTaxesIncluded,
+    taxable,
     taxes,
+    hasTaxesIncluded,
 } = Astro.props as Props;
 
 const delimitedCategories = categories.join('|');
@@ -50,8 +51,9 @@ const dimensionAttributes = buildDimensionsAttributes(dimensions);
     data-item-quantity-step={ quantityStep }
     data-item-stackable={ stackable }
     data-item-shippable={ shippable }
-    data-item-has-taxes-included={ hasTaxesIncluded }
+    data-item-taxable={ taxable }
     data-item-taxes={ taxes }
+    data-item-has-taxes-included={ hasTaxesIncluded }
     { ...customFieldAttributes }
     { ...dimensionAttributes }>
     <slot />

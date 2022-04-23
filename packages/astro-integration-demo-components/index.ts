@@ -6,3 +6,5 @@
 
 
 export * from './src/main';
+// export { default as DoNotImportThisIsToMakeViteWork } from './src/SnipcartProductBinding.vue';
+export * from './vue';
