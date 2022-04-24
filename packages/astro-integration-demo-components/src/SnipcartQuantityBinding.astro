@@ -1,15 +1,27 @@
 ---
-interface Props {
+import { Element, SnipcartProduct } from './types';
 
-}
+export type Props = Element & Pick<SnipcartProduct, 'quantity' | 'quantityStep' | 'minimumQuantity' | 'maximumQuantity'>;
 
-const { } = Astro.props as Props;
+const {
+    as: Element = 'div',
+    quantity = 0,
+    quantityStep = 1,
+    minimumQuantity,
+    maximumQuantity
+} = Astro.props as Props;
 ---
 
-<script>
-import Alpine from 'alpinejs';
-window.Alpine = Alpine;
-Alpine.start();
-</script>
-
-<button x-data x-on:click="alert('I\'ve been clicked!')">Click Me</button>
+<input
+    type="number"
+    x-data=`{
+        quantity: ${ quantity },
+        quantityStep: ${ quantityStep },
+        minumumQuantity: ${ minimumQuantity },
+        maximumQuantity: ${ maximumQuantity },
+    }`
+    x-model.number="quantity"
+    :data-item-quantity="quantity"
+    :data-item-quantity-step="quantityStep"
+    :data-item-min-quantity="minimumQuantity"
+    :data-item-max-quantity="maximumQuantity">

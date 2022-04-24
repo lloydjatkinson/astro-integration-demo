@@ -1,4 +1,8 @@
-import { SnipcartProductDimensions, SnipcartProductCustomField } from './types';
+import { SnipcartProductDimensions, SnipcartProductCustomField, SnipcartProduct } from './types';
+
+const buildDelimitedCategories = (categories: readonly string[]): string => categories.join('|');
+
+const buildFormattedMetadata = (metadata: { [key: string]: string }): string => JSON.stringify(metadata);
 
 export const buildDimensionsAttributes = (dimensions: SnipcartProductDimensions) => {
     if (!dimensions) {
@@ -49,4 +53,53 @@ export const buildCustomFieldAttributes = (customFields: readonly SnipcartProduc
             }),
         }
     }));
+};
+
+export const buildAttributes = (snipcartProduct: SnipcartProduct) => {
+    console.error(snipcartProduct)
+    const {
+        id,
+        name,
+        price,
+        url,
+        description,
+        image,
+        categories = [],
+        metadata,
+        fileGuid,
+        quantity,
+        minimumQuantity,
+        maximumQuantity,
+        quantityStep,
+        dimensions,
+        customFields = [],
+        stackable,
+        shippable,
+        taxable,
+        taxes,
+        hasTaxesIncluded,
+    } = snipcartProduct;
+
+    return {
+        'data-item-id': id,
+        'data-item-name': name,
+        'data-item-price': price,
+        'data-item-url': url,
+        'data-item-image': image,
+        'data-item-description': description,
+        'data-item-categories': buildDelimitedCategories(categories),
+        'data-item-metadata': buildFormattedMetadata(metadata),
+        'data-item-file-guid': fileGuid,
+        'data-item-quantity': quantity,
+        'data-item-minimum-quantity': minimumQuantity,
+        'data-item-maximum-quantity': maximumQuantity,
+        'data-item-quantity-step': quantityStep,
+        'data-item-stackable': stackable,
+        'data-item-shippable': shippable,
+        'data-item-taxable': taxable,
+        'data-item-taxes': taxes,
+        'data-item-has-taxes-included': hasTaxesIncluded,
+        ...buildCustomFieldAttributes(customFields),
+        ...buildDimensionsAttributes(dimensions),
+    };
 };

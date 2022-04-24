@@ -1,0 +1,36 @@
+---
+import { Element, SnipcartProduct } from './types';
+import { buildAttributes } from './attributes';
+
+export type Props = Element & SnipcartProduct;
+
+const {
+    as: Element = 'div',
+    
+    quantity,
+    quantityStep,
+} = Astro.props as Props;
+---
+
+<span
+    x-data=`{
+        quantity: ${ quantity },
+        quantityStep: ${ quantityStep },
+    }`>
+    <Element
+        class="snipcart-add-item"
+        { ...buildAttributes(Astro.props as Props) }
+        :data-item-quantity="quantity"
+        x-on:click=`
+            $nextTick(() => {
+                quantity = 11;
+            })
+        `>
+        <slot />
+    </Element>
+    <input
+        type="number"
+        step="{ quantityStep }"
+        min={ 1 }
+        x-model="quantity">
+</span>

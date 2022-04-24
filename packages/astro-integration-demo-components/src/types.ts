@@ -71,7 +71,7 @@ export interface SnipcartProduct {
     readonly description?: string;
     readonly image?: string | URL;
     readonly categories?: readonly string[];
-    readonly metadata?: object;
+    readonly metadata?: { [key: string]: string };
     readonly fileGuid?: string;
     readonly quantity?: number;
     readonly minimumQuantity?: number;

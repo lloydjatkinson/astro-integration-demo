@@ -14,6 +14,7 @@ import {
 	SnipcartItemsCount,
 	SnipcartCheckout,
 	SnipcartProduct,
+	SnipcartProductWithDynamicQuantity,
 	SnipcartQuantityBinding,
 } from '@lloydjatkinson/astro-integration-demo-components/astro';
 // import { SnipcartProductBinding } from '@lloydjatkinson/astro-integration-demo-components/vue';
@@ -88,17 +89,25 @@ const foos: Foo[] = [
 
 		<Component foos={foos} />
 
-<SnipcartProduct
+<!-- <SnipcartProduct
 	id="SKU-0001"
 	name="Standard T-Shirt"
 	price={ 6.99 }
 	description="Every day basic t-shirt">
 	T-Shirt
-</SnipcartProduct>
+</SnipcartProduct> -->
 
-<SnipcartQuantityBinding />
-<SnipcartQuantityBinding />
-<SnipcartQuantityBinding />
+<SnipcartProductWithDynamicQuantity
+	id="SKU-0001"
+	name="Standard T-Shirt"
+	price={ 6.99 }
+	description="Every day basic t-shirt"
+	quantity={ 10 }
+	minimumQuantity={ 1 }>
+	T-Shirt
+</SnipcartProductWithDynamicQuantity>
+
+
 
 <div class="text-blue-800 font-bold">
 	<SnipcartTotalPrice />
