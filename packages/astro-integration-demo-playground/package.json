@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@lloydjatkinson/astro-integration-demo": "workspace:^0.0.1",
-    "@lloydjatkinson/astro-integration-demo-components": "workspace:^0.0.1"
+    "@lloydjatkinson/astro-integration-demo-components": "workspace:^0.0.1",
+    "@lloydjatkinson/astro-integration-demo-design-system": "workspace:^0.0.1"
   }
 }

@@ -20,6 +20,11 @@ import {
 } from '@lloydjatkinson/astro-integration-demo-components/astro';
 // import { SnipcartProductBinding } from '@lloydjatkinson/astro-integration-demo-components/vue';
 
+import {
+	ProductGrid,
+	ProductCard,
+} from '@lloydjatkinson/astro-integration-demo-design-system/astro';
+
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
@@ -89,6 +94,22 @@ const foos: Foo[] = [
 		</header>
 
 		<Component foos={foos} />
+		
+		<div class="p-2 bg-white">
+			<ProductGrid
+				as="section">
+				<ProductCard />
+				<ProductCard />
+				<ProductCard />
+				<ProductCard />
+				<ProductCard />
+				<ProductCard />
+				<ProductCard />
+				<ProductCard />
+				<ProductCard />
+			</ProductGrid>
+
+		</div>
 
 <!-- <SnipcartProduct
 	id="SKU-0001"

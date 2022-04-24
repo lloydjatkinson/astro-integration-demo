@@ -49,6 +49,46 @@ importers:
       prettier-plugin-astro: 0.0.12
       typescript: 4.6.3
 
+  packages/astro-integration-demo-design-system:
+    specifiers:
+      '@types/chai': ^4.3.1
+      '@types/eslint': ^8.4.1
+      '@types/mocha': ^9.1.0
+      '@types/node': ^17.0.24
+      '@types/prettier': ^2.6.0
+      '@typescript-eslint/eslint-plugin': ^5.19.0
+      '@typescript-eslint/parser': ^5.19.0
+      astro: ^1.0.0-beta.0
+      astro-component-tester: ^0.4.0
+      chai: ^4.3.6
+      clsx: ^1.1.1
+      eslint: ^8.13.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-prettier: ^4.0.0
+      mocha: ^9.2.2
+      prettier: ^2.6.2
+      prettier-plugin-astro: ^0.0.12
+      typescript: ^4.6.3
+    devDependencies:
+      '@types/chai': 4.3.1
+      '@types/eslint': 8.4.1
+      '@types/mocha': 9.1.1
+      '@types/node': 17.0.25
+      '@types/prettier': 2.6.0
+      '@typescript-eslint/eslint-plugin': 5.20.0_qhyndj2pafgujuttxulbfsc73e
+      '@typescript-eslint/parser': 5.20.0_5wsz2tb7zzudmaqxfve53vbauu
+      astro: 1.0.0-beta.17
+      astro-component-tester: 0.4.0_astro@1.0.0-beta.17
+      chai: 4.3.6
+      clsx: 1.1.1
+      eslint: 8.14.0
+      eslint-config-prettier: 8.5.0_eslint@8.14.0
+      eslint-plugin-prettier: 4.0.0_mzpligoj26dazigcet37nxg2zy
+      mocha: 9.2.2
+      prettier: 2.6.2
+      prettier-plugin-astro: 0.0.12
+      typescript: 4.6.3
+
   packages/astro-integration-demo-playground:
     specifiers:
       '@astrojs/preact': ^0.1.1
@@ -57,6 +97,7 @@ importers:
       '@babel/core': '>=7.0.0-0 <8.0.0'
       '@lloydjatkinson/astro-integration-demo': workspace:^0.0.1
       '@lloydjatkinson/astro-integration-demo-components': workspace:^0.0.1
+      '@lloydjatkinson/astro-integration-demo-design-system': workspace:^0.0.1
       '@tailwindcss/forms': ^0.5.0
       astro: ^1.0.0-beta.12
       preact: ^10.6.5
@@ -65,6 +106,7 @@ importers:
     dependencies:
       '@lloydjatkinson/astro-integration-demo': link:../astro-integration-demo
       '@lloydjatkinson/astro-integration-demo-components': link:../astro-integration-demo-components
+      '@lloydjatkinson/astro-integration-demo-design-system': link:../astro-integration-demo-design-system
     devDependencies:
       '@astrojs/preact': 0.1.2_4aogvlozmxuufv32kpculfbxce
       '@astrojs/tailwind': 0.2.0
@@ -1379,6 +1421,11 @@ packages:
   /clone/1.0.4:
     resolution: {integrity: sha1-2jCcwmPfFZlMaIypAheco8fNfH4=}
     engines: {node: '>=0.8'}
+    dev: true
+
+  /clsx/1.1.1:
+    resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
+    engines: {node: '>=6'}
     dev: true
 
   /color-convert/1.9.3:

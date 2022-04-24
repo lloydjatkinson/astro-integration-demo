@@ -56,7 +56,6 @@ export const buildCustomFieldAttributes = (customFields: readonly SnipcartProduc
 };
 
 export const buildAttributes = (snipcartProduct: SnipcartProduct) => {
-    console.error(snipcartProduct)
     const {
         id,
         name,
