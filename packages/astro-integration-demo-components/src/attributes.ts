@@ -40,7 +40,7 @@ export const buildCustomFieldAttributes = (customFields: readonly SnipcartProduc
         return {
             [`data-item-custom${oneBasedIndex}-name`]: name,
             ...(options && {
-                [`data-item-custom${oneBasedIndex}-options`]: options.join('|'),
+                [`data-item-custom${oneBasedIndex}-options`]: options.map((value) => value.value).join('|'),
             }),
             ...(type && {
                 [`data-item-custom${oneBasedIndex}-type`]: type,

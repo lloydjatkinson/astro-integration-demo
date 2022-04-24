@@ -1,0 +1,82 @@
+---
+import { Element, SnipcartProduct, SnipcartProductCustomField } from './types';
+import { buildAttributes } from './attributes';
+
+export type Props = Element & SnipcartProduct ;
+
+const {
+    as: Element = 'div',
+    id,
+    name,
+    price,
+    url,
+    description,
+    image,
+    categories = [],
+    metadata,
+    fileGuid,
+    quantity,
+    minimumQuantity,
+    maximumQuantity,
+    quantityStep,
+    dimensions,
+    customFields = [],
+    stackable,
+    shippable,
+    taxable,
+    taxes,
+    hasTaxesIncluded,
+} = Astro.props as Props;
+
+const product = Astro.props as SnipcartProduct;
+
+const defaultSelection = (customField: readonly SnipcartProductCustomField) => {
+    return `{
+        selected: '${customField?.options[0]}'
+    }`;
+};
+
+
+---
+<!-- 
+<span
+    x-data=`{}`>
+    <Element
+        class="snipcart-add-item"
+        { ...buildAttributes(product) }></Element>
+        <slot />
+    </Element>
+    <input
+        type="number"
+        step="{ quantityStep }"
+        min={ 1 }
+        x-model="quantity">
+</span>
+ -->
+
+<Element>
+    <ul>
+        {
+            customFields.map((customField) =>
+                <li>
+                    {
+                        <p>{ customField.name }</p>
+                        <div x-data={ defaultSelection(customField) }>
+                            <select x-model="selected">
+                                {
+                                    customField.options.map((option, index) =>
+                                        <option
+                                            value={ option }>
+                                            { option.split('[')[0] }
+                                        </option>
+                                    )
+                                }
+                            </select>
+                            <p x-text="selected"></p>
+                        </div>                        
+                    }
+                </li>
+            )
+        }
+    </ul>
+</Element>

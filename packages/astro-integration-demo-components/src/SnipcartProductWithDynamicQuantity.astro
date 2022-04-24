@@ -6,7 +6,6 @@ export type Props = Element & SnipcartProduct;
 
 const {
     as: Element = 'div',
-    
     quantity,
     quantityStep,
 } = Astro.props as Props;
@@ -21,11 +20,7 @@ const {
         class="snipcart-add-item"
         { ...buildAttributes(Astro.props as Props) }
         :data-item-quantity="quantity"
-        x-on:click=`
-            $nextTick(() => {
-                quantity = 11;
-            })
-        `>
+        x-on:click="$nextTick(() => quantity = 1)">
         <slot />
     </Element>
     <input

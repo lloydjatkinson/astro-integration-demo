@@ -15,6 +15,7 @@ import {
 	SnipcartCheckout,
 	SnipcartProduct,
 	SnipcartProductWithDynamicQuantity,
+	SnipcartProductWithSelection,
 	SnipcartQuantityBinding,
 } from '@lloydjatkinson/astro-integration-demo-components/astro';
 // import { SnipcartProductBinding } from '@lloydjatkinson/astro-integration-demo-components/vue';
@@ -107,6 +108,20 @@ const foos: Foo[] = [
 	T-Shirt
 </SnipcartProductWithDynamicQuantity>
 
+<div class="bg-blue-100 p-4">
+	<SnipcartProductWithSelection
+		as="button"
+		id="SKU-0003"
+		name="Custom T-Shirt"
+		description="Testing stuff"
+		price={ 12.99 }
+		customFields={[
+		    { name: 'Size', options: ['Small', 'Medium', 'Large[+30.00]'], placeholder: 'Pink', required: true },
+		    { name: 'Pattern', options: ['Abstract', 'Neon', 'Tiger'] }
+		]}>
+		Hello world
+	</SnipcartProductWithSelection>
+</div>
 
 
 <div class="text-blue-800 font-bold">
@@ -135,7 +150,8 @@ const foos: Foo[] = [
 				lengthInCentimeters: 10,
 			}}
 			customFields={[
-				{ name: 'Size', options: ['Small', 'Medium', 'Large[-300.00]'], placeholder: 'Pink', required: true },
+				// { name: 'Size', options: ['Small', 'Medium', 'Large[+30.00]'], placeholder: 'Pink', required: true },
+				{ name: 'Size', options: ['Small', 'Medium', 'Large[+30.00]'], placeholder: 'Pink', required: true },
 				{ name: 'Pattern', options: ['Abstract', 'Neon', 'Tiger'] }
 			]}
 			shippable={ true }
