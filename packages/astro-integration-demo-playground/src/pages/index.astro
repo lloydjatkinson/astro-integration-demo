@@ -14,8 +14,9 @@ import {
 	SnipcartItemsCount,
 	SnipcartCheckout,
 	SnipcartProduct,
+	SnipcartQuantityBinding,
 } from '@lloydjatkinson/astro-integration-demo-components/astro';
-import { SnipcartProductBinding } from '@lloydjatkinson/astro-integration-demo-components/vue';
+// import { SnipcartProductBinding } from '@lloydjatkinson/astro-integration-demo-components/vue';
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -94,6 +95,10 @@ const foos: Foo[] = [
 	description="Every day basic t-shirt">
 	T-Shirt
 </SnipcartProduct>
+
+<SnipcartQuantityBinding />
+<SnipcartQuantityBinding />
+<SnipcartQuantityBinding />
 
 <div class="text-blue-800 font-bold">
 	<SnipcartTotalPrice />
@@ -205,7 +210,7 @@ const foos: Foo[] = [
 
 		<VueCounter client:load />
 
-		<SnipcartProductBinding client:load />
+		<!-- <SnipcartProductBinding client:load /> -->
 	</main>
 </body>
 </html>

@@ -1,0 +1,15 @@
+---
+interface Props {
+
+}
+
+const { } = Astro.props as Props;
+---
+
+<script>
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
+</script>
+
+<button x-data x-on:click="alert('I\'ve been clicked!')">Click Me</button>

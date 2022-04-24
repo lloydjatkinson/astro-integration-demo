@@ -17,6 +17,7 @@ importers:
       '@types/prettier': ^2.6.0
       '@typescript-eslint/eslint-plugin': ^5.19.0
       '@typescript-eslint/parser': ^5.19.0
+      alpinejs: ^3.10.2
       astro: ^1.0.0-beta.0
       astro-component-tester: ^0.4.0
       chai: ^4.3.6
@@ -27,6 +28,8 @@ importers:
       prettier: ^2.6.2
       prettier-plugin-astro: ^0.0.12
       typescript: ^4.6.3
+    dependencies:
+      alpinejs: 3.10.2
     devDependencies:
       '@types/chai': 4.3.1
       '@types/eslint': 8.4.1
@@ -852,6 +855,12 @@ packages:
       magic-string: 0.25.9
     dev: true
 
+  /@vue/reactivity/3.1.5:
+    resolution: {integrity: sha512-1tdfLmNjWG6t/CsPldh+foumYFo3cpyCHgBYQ34ylaMsJ+SNHQ1kApMIa8jN+i593zQuaw3AdWH0nJTARzCFhg==}
+    dependencies:
+      '@vue/shared': 3.1.5
+    dev: false
+
   /@vue/reactivity/3.2.33:
     resolution: {integrity: sha512-62Sq0mp9/0bLmDuxuLD5CIaMG2susFAGARLuZ/5jkU1FCf9EDbwUuF+BO8Ub3Rbodx0ziIecM/NsmyjardBxfQ==}
     dependencies:
@@ -882,6 +891,10 @@ packages:
       '@vue/shared': 3.2.33
       vue: 3.2.33
     dev: true
+
+  /@vue/shared/3.1.5:
+    resolution: {integrity: sha512-oJ4F3TnvpXaQwZJNF3ZK+kLPHKarDmJjJ6jyzVNDKH9md1dptjC7lWR//jrGuLdek/U6iltWxqAnYOu8gCiOvA==}
+    dev: false
 
   /@vue/shared/3.2.33:
     resolution: {integrity: sha512-UBc1Pg1T3yZ97vsA2ueER0F6GbJebLHYlEi4ou1H5YL4KWvMOOWwpYo9/QpWq93wxKG6Wo13IY74Hcn/f7c7Bg==}
@@ -936,6 +949,12 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
     dev: true
+
+  /alpinejs/3.10.2:
+    resolution: {integrity: sha512-P6DTX78J94FgsskS3eS23s26hfb0NWQZUidBnkUK7fId1x64/kLm5E79lL3HNItUmHDCKOHvfP8EAcuCVab89w==}
+    dependencies:
+      '@vue/reactivity': 3.1.5
+    dev: false
 
   /ansi-align/3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
