@@ -1,5 +1,41 @@
 ---
+import {
+    Element,
+    SnipcartProductDefinition,
+} from '@lloydjatkinson/astro-integration-demo-components';
 
+import {
+    SnipcartProduct
+} from '@lloydjatkinson/astro-integration-demo-components/astro';
+
+export type Props = Element & SnipcartProductDefinition & {
+    readonly currency: string;
+};
+
+const {
+    as: Element = 'div',
+    id,
+    name,
+    price,
+    url,
+    description,
+    image,
+    categories = [],
+    metadata,
+    fileGuid,
+    quantity,
+    minimumQuantity,
+    maximumQuantity,
+    quantityStep,
+    dimensions,
+    customFields = [],
+    stackable,
+    shippable,
+    taxable,
+    taxes,
+    hasTaxesIncluded,
+    currency,
+} = Astro.props as Props;
 ---
 
 <div class="group relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
@@ -7,18 +43,25 @@
         <img src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg" alt="Eight shirts arranged on table in black, olive, grey, blue, white, red, mustard, and green." class="w-full h-full object-center object-cover sm:w-full sm:h-full">
     </div>
     <div class="flex-1 p-4 space-y-2 flex flex-col">
+            <SnipcartProduct
+            as="button"
+            { ...Astro.props as SnipcartProductDefinition }
+            image="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-01.jpg">
+            Add to bag
+        </SnipcartProduct>
         <h3 class="text-sm font-medium text-gray-900">
             <a href="#">
-                <span aria-hidden="true" class="absolute inset-0"></span>
-                Basic Tee 8-Pack
+                <span aria-hidden="true" class=""></span>
+                { name }
             </a>
         </h3>
         <p class="text-sm text-gray-500">
-            Get the full lineup of our Basic Tees. Have a fresh shirt all week, and an extra for laundry day.
+            { description }
         </p>
         <div class="flex-1 flex flex-col justify-end">
             <p class="text-sm italic text-gray-500">8 colors</p>
-            <p class="text-base font-medium text-gray-900">$256</p>
+            <p class="text-base font-medium text-gray-900">{ currency }{ price }</p>
         </div>
+
     </div>
 </div>

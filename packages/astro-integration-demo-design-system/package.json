@@ -41,5 +41,8 @@
   "peerDependencies": {
     "astro": "^1.0.0-beta.0",
     "clsx": "^1.1.1"
+  },
+  "dependencies": {
+    "@lloydjatkinson/astro-integration-demo-components": "workspace:^0.0.1"
   }
 }

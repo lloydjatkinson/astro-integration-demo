@@ -51,6 +51,7 @@ importers:
 
   packages/astro-integration-demo-design-system:
     specifiers:
+      '@lloydjatkinson/astro-integration-demo-components': workspace:^0.0.1
       '@types/chai': ^4.3.1
       '@types/eslint': ^8.4.1
       '@types/mocha': ^9.1.0
@@ -69,6 +70,8 @@ importers:
       prettier: ^2.6.2
       prettier-plugin-astro: ^0.0.12
       typescript: ^4.6.3
+    dependencies:
+      '@lloydjatkinson/astro-integration-demo-components': link:../astro-integration-demo-components
     devDependencies:
       '@types/chai': 4.3.1
       '@types/eslint': 8.4.1
