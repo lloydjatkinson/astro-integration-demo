@@ -1,4 +1,4 @@
-import { SnipcartProductDimensions, SnipcartProductCustomField, SnipcartProductDefinition } from './types';
+import { SnipcartProductDimensions, SnipcartProductCustomField, SnipcartProduct } from './types';
 
 const buildDelimitedCategories = (categories: readonly string[]): string => categories.join('|');
 
@@ -55,7 +55,7 @@ export const buildCustomFieldAttributes = (customFields: readonly SnipcartProduc
     }));
 };
 
-export const buildAttributes = (snipcartProduct: SnipcartProductDefinition) => {
+export const buildAttributes = (snipcartProduct: SnipcartProduct) => {
     const {
         id,
         name,

@@ -10,17 +10,18 @@ import { Foo } from '@lloydjatkinson/astro-integration-demo-components';
 import {
 	Component,
 	SnipcartSetup,
-	SnipcartTotalPrice,
-	SnipcartItemsCount,
-	SnipcartCheckout,
-	SnipcartProduct,
-	SnipcartProductWithDynamicQuantity,
-	SnipcartProductWithSelection,
-	SnipcartQuantityBinding,
+	CartTotalPrice,
+	CartItemsCount,
+	Checkout,
+	Product,
+	ProductWithDynamicQuantity,
+	ProductWithSelection,
+	QuantityBinding,
 } from '@lloydjatkinson/astro-integration-demo-components/astro';
 // import { SnipcartProductBinding } from '@lloydjatkinson/astro-integration-demo-components/vue';
 
 import {
+	Button,
 	ProductGrid,
 	ProductCard,
 } from '@lloydjatkinson/astro-integration-demo-design-system/astro';
@@ -94,6 +95,8 @@ const foos: Foo[] = [
 		</header>
 
 		<Component foos={foos} />
+
+		<Button fullWidth={true}>Add to bag</Button>
 		
 		<div class="p-2 bg-white">
 			<ProductGrid
@@ -128,7 +131,7 @@ const foos: Foo[] = [
 	T-Shirt
 </SnipcartProduct> -->
 
-<SnipcartProductWithDynamicQuantity
+<ProductWithDynamicQuantity
 	id="SKU-0001"
 	name="Standard T-Shirt"
 	price={ 6.99 }
@@ -136,10 +139,10 @@ const foos: Foo[] = [
 	quantity={ 10 }
 	minimumQuantity={ 1 }>
 	T-Shirt
-</SnipcartProductWithDynamicQuantity>
+</ProductWithDynamicQuantity>
 
 <div class="bg-blue-100 p-4">
-	<SnipcartProductWithSelection
+	<ProductWithSelection
 		as="button"
 		id="SKU-0003"
 		name="Custom T-Shirt"
@@ -150,17 +153,17 @@ const foos: Foo[] = [
 		    { name: 'Pattern', options: ['Abstract', 'Neon', 'Tiger'] }
 		]}>
 		Hello world
-	</SnipcartProductWithSelection>
+	</ProductWithSelection>
 </div>
 
 
 <div class="text-blue-800 font-bold">
-	<SnipcartTotalPrice />
+	<CartTotalPrice />
 </div>
 
 <div class="flex flex-col gap-4">
 	<div class="py-4 bg-green-100">
-		<SnipcartProduct
+		<Product
 			as="button"
 			id="SKU-0002"
 			name="Standard T-Shirt"
@@ -187,25 +190,29 @@ const foos: Foo[] = [
 			shippable={ true }
 			hasTaxesIncluded={ true }
 			taxes={ ['foo', 'bar'] }>
-			Add new item to basket
-		</SnipcartProduct>
+			ffs
+
+		</Product>
 	</div>
 
 	<div class="py-4 bg-blue-100">
-		<SnipcartProduct
-			as="button"
+	hi
+		<Product
+			as="span"
 			id="SKU-0003"
 			name="Standard T-Shirt"
 			price={ 12.99 }
 			description="Every day basic t-shirt"
 			image="/blue-t-shirt.jpg"
 			categories={ ['cotton', 'clothes', 'blue'] }>
-			Add new item to basket
-		</SnipcartProduct>
+			<Button fullWidth={true}>
+				<span>Hello</span>
+			</Button>
+		</Product>
 	</div>
 
 	<div class="py-4 bg-red-100">
-		<SnipcartProduct
+		<Product
 			as="button"
 			id="SKU-0004"
 			name="Standard T-Shirt"
@@ -215,14 +222,14 @@ const foos: Foo[] = [
 			categories={ ['cotton', 'clothes', 'red'] }
 			>
 			Add new item to basket
-		</SnipcartProduct>
+		</Product>
 	</div>
 </div>
 
-<SnipcartItemsCount as="div" />
+<CartItemsCount as="div" />
 
 <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-	<SnipcartCheckout as="span">Open your basket</SnipcartCheckout>
+	<Checkout as="span">Open your basket</Checkout>
 </button>
 
 <button class="snipcart-checkout">Click here to checkout</button>

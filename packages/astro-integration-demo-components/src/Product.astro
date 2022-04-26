@@ -32,6 +32,13 @@ const delimitedCategories = categories.join('|');
 const formattedMetadata = JSON.stringify(metadata);
 const customFieldAttributes = buildCustomFieldAttributes(customFields);
 const dimensionAttributes = buildDimensionsAttributes(dimensions);
+
+let html: string = '';
+const hasSlottedDefault = Astro.slots.has('default');
+if (hasSlottedDefault) {
+  html = await Astro.slots.render('default')
+  console.log(html)
+}
 ---
 
 <Element

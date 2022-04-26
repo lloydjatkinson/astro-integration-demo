@@ -63,7 +63,7 @@ export type SnipcartProductCustomField = {
     readonly placeholder?: string;
 };
 
-export interface SnipcartProductDefinition {
+export interface SnipcartProduct {
 	readonly id: string;
     readonly name: string;
     readonly price: number;
@@ -71,7 +71,7 @@ export interface SnipcartProductDefinition {
     readonly description?: string;
     readonly image?: string | URL;
     readonly categories?: readonly string[];
-    readonly metadata?: { [key: string]: string };
+    readonly metadata?: { readonly [key: string]: string };
     readonly fileGuid?: string;
     readonly quantity?: number;
     readonly minimumQuantity?: number;
